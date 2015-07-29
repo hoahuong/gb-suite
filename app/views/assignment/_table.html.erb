@@ -1,0 +1,158 @@
+
+<div class="col-md-6">
+<div class="box box-info" style="margin-top:10px" >
+    <form class="form-horizontal" >
+      <div class="box-body">
+        <div class="form-group">
+          <label for="Name" class="col-sm-4" >Project Name</label>
+          <div class="col-sm-5">
+             <select style="width:156px; height:34px">
+                  <option >Hito Manager</option>
+                  <option>Hito talent</option>
+                  <option>Genersis</ooption>
+                  <option>Career exhance</option>
+              </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="Name" class="col-sm-4" >User Name</label>
+          <div  id="select" class="col-sm-5"  >
+             <select  style="width:156px;" multiple>
+                  <option >Nguyen Van A</option>
+                  <option>Tran Thi Thao</option>
+                  <option>Tran Thi Hoa</ooption>
+                  <option>Nguyen Thi Ngoc cam</option>
+              </select>
+             
+          </div>
+              <button type="submit" id="btnShowModal" class="btn btn-primary">+</button>  
+        </div>
+
+        <div class="form-group">
+          <label for="datetimepicker1" class="col-sm-4 " >Start at</label>
+          <div class="col-sm-5">
+          <div class='input-group date' id='datetimepicker1' >
+            <input type='text' class="form-control" placeholder="2015/07/07 9:1:0" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+             <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datepicker();
+              });
+              </script>
+             </div>
+        </div>
+        <div class="form-group">
+          <label for="datetimepicker2" class="col-sm-4" >end at</label>
+          <div class="col-sm-5">
+          <div class='input-group date' id='datetimepicker2' >
+            <input type='text' class="form-control" placeholder="2015/07/07 9:1:0" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+             <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datepicker();
+              });
+              </script>
+             </div>
+        </div>
+
+        <div class="form-group">
+          <label for="Name" class="col-sm-4" >Authority</label>
+          <div class="col-sm-5">
+             <select style="width:156px; height:34px">
+                  <option >Aprrover</option>
+                  <option>Member</option>
+              </select>
+          </div>
+        </div>
+        <!--<div class="form-group">
+          <div  style="margin-left:200px"  >
+                <label>
+                  <input type="checkbox"> Approved
+                </label>
+          </div>
+         </div> -->
+
+      </div><!-- /.box-body -->
+      <div class="box-footer">
+        <button type="submit" class="btn btn-primary">Assign</button>
+        <!--<button type="submit" class="btn btn-primary">UnAssign</button>-->
+      </div>
+      <!-- /.box-footer -->
+    </form>
+    
+  </div>
+</div>
+<div class="col-md-12" style="margin-bottom:5px">
+  <label>Project Assignment</label>
+    <table border="1" class="table table-bordered table-hover dataTable"   class="col-md-12">
+      <tr>
+          <th>NO</th>
+          <th>Project Name</th>
+          <th>User Name</th>
+          <th>Start at</th>
+          <th>End at</th>
+          <th>Authority</th>
+          <th>Edit</th>
+          <th>Delete</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Hito Manager</td>
+        <td>Nguyen Van A</td>
+        <td>2015/05/05</td>
+        <td>2015/07/07</td>
+        <td>Approver</td>
+        <td ><%= link_to 'Edit', edit_assignment_path(1), 
+                                  method: :get,
+                                          data: { confirm: 'Are you sure?' } %></td>
+        <td> <a href="#"><i class="fa fa-trash-o"></i></a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Hito Manager</td>
+        <td>Nguyen Van A</td>
+        <td>2015/05/05</td>
+        <td>2015/07/07</td>
+        <td>Approver</td>
+        <td ><%= link_to 'Edit', edit_assignment_path(1), 
+                                  method: :get,
+                                          data: { confirm: 'Are you sure?' } %></td>
+        <td> <a href="#"><i class="fa fa-trash-o"></i></a></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Hito Manager</td>
+        <td>Nguyen Van A</td>
+        <td>2015/05/05</td>
+        <td>2015/07/07</td>
+        <td>Approver</td>
+        <td ><%= link_to 'Edit', edit_assignment_path(1), 
+                                  method: :get,
+                                          data: { confirm: 'Are you sure?' } %></td>
+        <td> <a href="#"><i class="fa fa-trash-o"></i></a></td>
+      </tr>
+    </table>
+</div>
+<div style="margin-bottom:10px" class="col-sm-12">
+  <div style="float: left; margin-bottom:5px">
+     <lable>show 1 to 10 in 60 entries </lable>
+  </div>
+  <div style="float:right;">
+     <ul class="pagination pagination" >
+            <li><a href="#">«</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">»</a></li>
+      </ul>
+  </div>
+</div>
+
+       
+

@@ -1,0 +1,57 @@
+<!-- <div class="box-body no-padding"> -->
+<script type="text/javascript">
+  $(function () {
+                // $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker1').datepicker();
+              });
+</script>
+<div class="box-header with-border">
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Project name</label>
+      <div class="col-sm-4">
+        <input type="email" class="form-control" id="inputEmail3">
+      </div>
+      <label for="inputEmail3" class="col-sm-2 control-label">User name</label>
+      <div class="col-sm-4">
+        <input type="email" class="form-control" id="inputEmail3">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
+      <div class="col-sm-4">
+        <select class="form-control select2" style="width: 100%;" tabindex="-1">
+          <option selected="selected"> ---  </option>
+          <option>Finish input</option>
+          <option>During input</option>
+          <option>Manager approved</option>
+          <option>Accountant approved</option>
+          <option>Manager rejected</option>
+          <option>Accountant rejected</option>
+        </select>
+      </div>
+      <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
+      <div class="col-sm-4">
+        <div class='input-group date' id='datetimepicker1'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group col-sm-6"></div>
+    <div class="form-group col-sm-2">
+      <input type="submit" name="commit" value="Search" class="btn btn-primary btn-save-date-type">
+    </div>
+      <!-- <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Search
+            </label>
+          </div>
+        </div>
+      </div> -->
+    </form>
+  </div>

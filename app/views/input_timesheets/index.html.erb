@@ -1,0 +1,335 @@
+<h1> Time Sheet</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-body" id="table-content">
+
+    	<table class = "table table-bordered table-striped dataTable">
+    		<tr>
+    			<th style = "width:10%; vertical-align: middle; text-align: center;">
+    				Month
+    			</th>
+    			<th style = "width:25%; vertical-align: middle; text-align: center;">
+    				<div class='input-group date' id='datetimepicker1' >
+    					<input type='text' class="form-control" />
+                              <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                    </div>
+
+                            <script type="text/javascript">
+                              $(function () {
+                                  // $('#datetimepicker1').datetimepicker();
+                                  $('#datetimepicker1').datepicker();
+                                });
+                            </script>
+    			</th>
+    			<th style = "width:25% ; vertical-align: middle; text-align: center;">
+    				<div class='input-group date' id='datetimepicker2' >
+    					<input type='text' class="form-control" />
+                              <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                    </div>
+
+                            <script type="text/javascript">
+                              $(function () {
+                                  // $('#datetimepicker1').datetimepicker();
+                                  $('#datetimepicker2').datepicker();
+                                });
+                            </script>
+    			</th>
+    			<th style="vertical-align: middle; text-align: center;">
+    				Project
+    			</th>
+    			<th style = "width:25%; vertical-align: middle; text-align: center;">
+    				<select class="form-control select2"  tabindex="-1">
+	                  <option selected="selected"> All projects  </option>
+	                  <option>IBS VN</option>
+	                  <option>IBS OKINAWA</option>
+	                </select>
+    			</th>
+    			<th style="vertical-align: middle; text-align: center;">
+    				<input type ="button" class ="btn btn-primary" value ="View timesheet" style="display:inline-block"/>	
+    			</th>
+    		</tr>
+    	</table>
+
+       <br>
+      <table class = "table table-bordered table-striped dataTable">
+      	<tr>
+      		<th colspan = "10"> Project :  <a> Hito-Manager </a> </th>
+      	</tr>
+      	<tr style ="background-color: #f9f9f9;">
+      		<th rowspan = "3" style ="vertical-align: middle; text-align: center;">
+      			Project charge time
+      		</th>
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Weekday (Mon-Fri)
+      		</th>	
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Weekend (Sat & Sun)
+      		</th>	
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Holiday
+      		</th>
+      	</tr>
+      	<tr>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      	</tr>
+      	<tr>
+      		<th>
+      			86:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      	</tr>
+      </table>
+      <br>
+      <table class = "table table-bordered table-striped dataTable">
+      	<tr>
+      		<th colspan = "10"> Project : <a> Company charge time project </a> </th>
+      	</tr>
+      	<tr style ="background-color: #f9f9f9;">
+      		<th rowspan = "3" style ="vertical-align: middle; text-align: center;">
+      			Project charge time
+      		</th>
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Weekday (Mon-Fri)
+      		</th>	
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Weekend (Sat & Sun)
+      		</th>	
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Holiday
+      		</th>
+      	</tr>
+      	<tr>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      	</tr>
+      	<tr>
+      		<th>
+      			86:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      	</tr>
+      </table>
+
+      <br>
+      <table class = "table table-bordered table-striped dataTable">
+      	<tr>
+      		<th colspan = "10"> Sumary</th>
+      	</tr>
+      	<tr style ="background-color: #f9f9f9;">
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Weekday (Mon-Fri)
+      		</th>	
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Weekend (Sat & Sun)
+      		</th>	
+      		<th colspan = 3 style ="vertical-align: middle; text-align: center;">
+      			Holiday
+      		</th>
+      	</tr>
+      	<tr>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      		<th>
+      			Regular
+      		</th>
+      		<th>
+      			Overtime
+      		</th>
+      		<th>
+      			Midnight
+      		</th>
+      	</tr>
+      	<tr>
+      		<th>
+      			172:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      		<th>
+      			0:00
+      		</th>
+      	</tr>
+      </table>
+      <br>
+      <table class = "table table-bordered table-striped dataTable">
+      	<tr>
+      		<th rowspan="2" style ="vertical-align: middle; text-align: center;">
+      			Unpaid leave
+      		</th>
+  			<th style ="vertical-align: middle; text-align: center;">
+  				Unpaid vacation
+  			</th>
+  			<th style ="vertical-align: middle; text-align: center;">
+  				Small leave
+  			</th>
+  			<th style ="vertical-align: middle; text-align: center;">
+  				Recovery small leave
+  			</th>
+  			<th style ="vertical-align: middle; text-align: center;">
+  				Total
+  			</th>
+      	</tr>
+      	<tr>
+
+      		<td style ="vertical-align: middle; text-align: center;">
+      			0:00
+      		</td>
+      		<td style ="vertical-align: middle; text-align: center;">
+      			5:00
+      		</td>
+      		<td style ="vertical-align: middle; text-align: center;">
+      			2:00
+      		</td>
+      		<td style ="vertical-align: middle; text-align: center;">
+      			3:00
+      		</td>
+      	</tr>
+      	<tr>
+      		<th style ="vertical-align: middle; text-align: center;">
+      			<b> Anual leave </b>
+      		</th>
+      		<td colspan="4" style ="vertical-align: middle; text-align: center; background-color: #ffffff;" >
+      			16:00
+      		</td>
+      	</tr>
+      </table>
+    </div>
+  </div>
+</div>
+<input type ="button" class ="btn btn-primary" value ="Input timesheet" style="display:inline-block"/>	

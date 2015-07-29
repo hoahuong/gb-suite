@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box" id="table_content">
+      <%= render partial: 'table' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+	<%= link_to 'New Company', new_company_path, remote: true, class: "btn btn-primary" %>
+	</div>
+</div>
+<div id="company_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+

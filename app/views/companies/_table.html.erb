@@ -1,0 +1,64 @@
+<div class="box-body no-padding ranking-table">
+  <div class="box-body">
+    <div class="form-group">
+      <div class="row">
+        <label for="inputEmail3" class="col-md-2 control-label">Company name</label>
+          <div class="col-md-8">
+            <input type="text" class="form-control" id="inputCompanyName">
+          </div>
+          <input type="button" value="Search" class="btn btn-primary">
+      </div>
+    </div>
+    <div class="col-md-12">
+      <table class="table table-bordered" id="ranking-table">
+        <tbody>
+          <tr>
+            <th>No</th>
+            <th>Company Name</th>
+            <th>Note</th>
+            <th>Show</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          <% @companies.each do |company| %>
+          <tr>
+            <td><%= company.id %></td>
+            <td><%= company.name %></td>
+            <td><%= company.note %></td>
+            <td>
+              <%= link_to company_path(company), remote: true do %>
+                <i class="fa fa-eye fa-2x"></i>
+              <%end%>
+            </td>
+            <td>
+              <%= link_to edit_company_path(company), remote: true do %>
+                <i class="fa fa-edit fa-2x"></i>
+              <%end%>
+            </td>
+            <td>
+              <%= link_to company_path(company), method: :delete, remote: true do%>
+                <i class="fa fa-trash fa-2x"></i>
+              <%end%>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <p>Showing 1 to 5 of 10 Entries</p>
+  </div>
+  <div class="col-md-9 col-sm-offset-9">
+    <div class="paging">
+      <ul class="pagination pagination-sm">
+        <li><a href="#">Previous</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">Next</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+

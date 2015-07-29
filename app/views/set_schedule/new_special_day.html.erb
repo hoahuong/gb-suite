@@ -1,0 +1,51 @@
+<h1> New Special day </h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-body" id="table-content">
+      <div> 
+      		Company
+      </div>
+      <div>
+      	<select class="form-control" tabindex="-1">
+                  <option>IBS VN</option>
+                  <option>IBS OKINAWA</option>
+                </select>
+      </div>
+      <div>
+      		Name
+      </div>
+      <div>
+      		<input type ="text" class="form-control" /> 
+      </div>
+      <div>
+      		Date
+      </div>
+      <div>
+      	 <div class='input-group date' id='datetimepicker2' style = "width: 100%;">
+                              <input type='text' class="form-control"/>
+                              <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                            </div>
+                            <script type="text/javascript">
+                              $(function () {
+                                  // $('#datetimepicker1').datetimepicker();
+                                  $('#datetimepicker2').datepicker();
+                                });
+                            </script>
+      </div>
+      <div>
+          Day type
+      </div>
+      <div>
+        <select class="form-control" tabindex="-1">
+          <option selected="selected"> ---  </option>
+                  <option>Holiday</option>
+                  <option>Working day</option>
+                </select>
+      </div>
+    </div>
+  </div>
+</div>
+ <input type ="button" class ="btn btn-primary" value ="Save"/> 
+  <input type ="button" class ="btn btn-primary" value ="Back"/> 

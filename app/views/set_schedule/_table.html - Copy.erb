@@ -1,0 +1,113 @@
+<div class="box-body no-padding ranking-table">
+  <form class="form-horizontal">
+    <div class="box-body">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Project name</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="inputEmail3">
+        </div>
+        <label for="inputEmail3" class="col-sm-2 control-label">User name</label>
+        <div class="col-sm-4">
+          <input type="email" class="form-control" id="inputEmail3">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Status</label>
+        <div class="col-sm-4">
+          <select class="form-control select2" style="width: 100%;" tabindex="-1">
+          <option selected="selected"> ---  </option>
+            <option>Finish input</option>
+            <option>During input</option>
+            <option>Manager approved</option>
+            <option>Accountant approved</option>
+            <option>Manager rejected</option>
+            <option>Accountant rejected</option>
+          </select>
+        </div>
+        <label for="inputEmail3" class="col-sm-2 control-label">Date</label>
+        <div class="col-sm-4">
+          <div class='input-group date' id='datetimepicker1'>
+            <input type='text' class="form-control" />
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+          <script type="text/javascript">
+            $(function () {
+                // $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker1').datepicker();
+              });
+          </script>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox"> Search
+            </label>
+          </div>
+        </div>
+      </div>
+    </div><!-- /.box-body -->
+  </form>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <table class="table table-striped" id="ranking-table">
+      <tbody>
+        <tr>
+          <th>Project Name</th>
+          <th>User Name</th>
+          <th>Current Status</th>
+          <th>Date</th>
+        </tr>
+        <tr>
+          <td>GENESIS</td>
+          <td>Nguyen Van Canh</td>
+          <td>Finish Input</td>
+          <td>2015/07/23</td>
+        </tr>
+        <tr>
+          <td>GENESIS</td>
+          <td>Nguyen Ngoc Quy</td>
+          <td>Finish Input</td>
+          <td>2015/07/22</td>
+        </tr>
+        <tr>
+          <td>GENESIS</td>
+          <td>Le Thi A</td>
+          <td>Account rejected</td>
+          <td>2015/07/22</td>
+        </tr>
+        <tr>
+          <td>GENESIS</td>
+          <td>Nguyen Phuong Hai</td>
+          <td>Approved</td>
+          <td>2015/07/22</td>
+        </tr>
+        <tr>
+          <td>Hito-talent</td>
+          <td>Nguyen Van A</td>
+          <td>Manager rejected</td>
+          <td>2015/07/22</td>
+        </tr>
+        <tr>
+          <td>Hito-talent</td>
+          <td>Le Thi Hoa Huong</td>
+          <td>During Input</td>
+          <td>2015/07/22</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="paging">
+  <ul class="pagination pagination">
+    <li><a href="#">«</a></li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">»</a></li>
+  </ul>
+</div>

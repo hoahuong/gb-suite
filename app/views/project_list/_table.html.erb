@@ -1,0 +1,187 @@
+<div class="box-body no-padding ranking-table">
+  <form class="form-horizontal">
+    <div class="box-body" >
+      <div class="form-group" style="margin-bottom:0.5px">
+        <label for="projectname" class="col-sm-2 " align="left">Project name</label>
+        <label for="date" class="col-sm-2 " align="left">Start at</label>
+        <label for="date" class="col-sm-2 " align="left">End at</label>
+        <label for="date" class="col-sm-2 " align="left">Status</label>
+      </div>
+      <div class="form-group" style="margin-top:1px">
+          <div class="col-sm-2">
+            <%= form_tag({:controller=>'project_list', :action=>'index'}, method: :get) do %>
+            <select name="showproject" style="width:150px; height:34px" onchange="this.form.submit()">
+             <% @companys.each do |key,value| %>
+              <option  >
+                <%= value %>
+                <br>
+              </option>
+            <% end %>
+              </select>
+            <% end %>
+          </div>
+
+          <div class="col-sm-2">
+            <div class='input-group date' id='datetimepicker1'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class='input-group date' id='datetimepicker2'>
+              <input type='text' class="form-control" />
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+            </div>
+             <script type="text/javascript">
+            $(function () {
+                // $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker2').datepicker();
+              });
+              </script>
+          </div>
+         <div class="col-sm-2">
+            <input type="email" class="form-control" id="inputEmail3">
+         </div>
+         <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary">Search</button> 
+         </div>
+
+      </div>
+       <!--<div>
+            <button type="submit" class="btn btn-primary">Search</button> 
+      </div>-->
+    </div>
+</div>
+</div>
+
+<div style="margin-bottom:20px">
+  <div style="float: left;">
+    <lable >show</lable>
+    <select>
+        <option>5</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+    </select>
+    <lable style="width:80px; margin-left:10px" >entries</lable> 
+  </div>
+  <div style="float:right;">
+    <lable >Search</lable>
+    <input class="" style="margin-bottom: 5px;">
+  </div>
+<!-- <table>
+  <tr>
+    <td style="width:40px">
+    <lable >show</lable> 
+    </td> 
+    <td>
+      <%= form_tag({:controller=>'project_list', :action=>'index'}, method: :get) do %>
+        <select name="showproject" style="width:100px "  onchange="this.form.submit()">
+         <% @limitrows.each do |key,value| %>
+          <option  >
+            <%= value %>
+            <br>
+          </option>
+        <% end %>
+          </select>
+      <% end %>
+    </td>
+    <td style="width:80px; margin-left:50px; align:right">
+    <lable style="width:80px; margin-left:10px" >entries</lable> 
+    </td> 
+    <td style=" width:400px; ">
+           <div class="col-sm-12"><label for="inputEmail3" style=" margin-left:500px; height:34px; width:100px" class="col-sm-2 control-label" sy>Email</label>
+              <input type="email" style=" margin-left:600px; height:34px; width:150px" class="form-control" id="inputEmail3">
+           </div>
+         
+      
+    </td> 
+  <tr>
+</table> -->
+</div>
+
+<div style="margin-top:20pxs">
+    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                    <thead>
+                      <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Name</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Start at</th>
+                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">End at</th>  
+                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Notice</th>    
+                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Status</th>  
+                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Show</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Edit</th>
+                        <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">Delete</th>
+                         
+                      </tr>
+                    </thead>
+                    <tbody>        
+                     
+                      <tr role="row" class="even">
+                        <td class="sorting_1">1</td>
+                        <td>Hito Manager</td>
+                        <td>2015/01/01</td>
+                        <td>2015/01/01</td>
+                        <td>open</td>
+                        <td>Mataince project</td>
+                        <td><a href="#">show</a></td>
+                        <td><a href="#">edit</a></td>
+                        <td>
+                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                      </tr>
+                         <tr role="row" class="even">
+                        <td class="sorting_1">1</td>
+                        <td>Hito Manager</td>
+                        <td>2015/01/01</td>
+                        <td>2015/01/01</td>
+                        <td>open</td>
+                        <td>Mataince project</td>
+                        <td><a href="#">show</a></td>
+                        <td><a href="#">edit</a></td>
+                        <td>
+                            <a href="#"><i class="fa fa-trash-o"></i></a>
+                        </td>
+                      </tr>
+
+                    </tbody>
+                    
+                  </table>
+</div>
+
+<div>
+  <table>
+    <tr>
+      <td>
+        <lable>show 1 to 10 in 60 entries </lable>
+      </td>
+      <td style="margin-left:700px">
+        <div class="paging" style="margin-left:700px">
+          <ul class="pagination pagination" style="aglign:right">
+            <li><a href="#">«</a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">»</a></li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
+<script type="text/javascript">
+            $(function () {
+                // $('#datetimepicker1').datetimepicker();
+                $('#datetimepicker1').datepicker();
+              });
+</script>
+
+
