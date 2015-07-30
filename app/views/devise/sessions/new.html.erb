@@ -1,0 +1,55 @@
+<body class="login-page">
+
+  <div>
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="/"><a href="/"><%= t('.logo').html_safe %></a>
+      </div>
+
+      <div class="login-box-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+
+          <div class="form-group has-feedback">
+            <%= f.email_field :email, class: "form-control", placeholder: 'email' %>
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+
+          <div class="form-group has-feedback">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: 'password', minlength:"8", maxlength:"32" %>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+            <div class="field">
+              <%= f.check_box :remember_me %>
+              <%= f.label :remember_me %>
+            </div>
+          <% end -%>
+
+          <!-- Alert -->
+          <% if notice %>
+            <div class="login-success">
+                <%= notice %>
+            </div>
+          <% end %>
+          <% if alert %>
+            <div class="login-failure">
+                <%= alert %>
+            </div>
+          <% end %>
+
+          <div class="actions social-auth-links text-center">
+            <%= f.submit 'login', class: "btn btn-block btn-primary btn-flat login-btn" %>
+          </div>
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <%#= render :partial => 'footer' %>
+
+</body>

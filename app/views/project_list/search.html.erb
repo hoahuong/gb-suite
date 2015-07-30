@@ -1,0 +1,39 @@
+<table border="1"; cellpadding="0"; cellspacing="0";class="col-sm-12"  class="table table-bordered table-hover dataTable" >
+    <tr >
+      
+      <!--<th><%= sortable "title" %></th>
+     <th><%= sortable "text" %></th>-->
+     <th>No</th>
+     <th><%= link_to "name", :sort => "name" %></th>
+    <th><%= link_to "status", :sort => "status" %></th>
+     <th><%= link_to "name", :sort => "name" %></th>
+    <th><%= link_to "status", :sort => "status" %></th>
+     <th><%= link_to "name", :sort => "name" %></th>
+    <th><%= link_to "status", :sort => "status" %></th>
+     
+     <th><%= link_to "name", :sort => "name" %></th>
+    <th><%= link_to "status", :sort => "status" %></th>
+
+   
+    </tr>
+
+    <% @project.each do |f| %>
+      <tr>
+       <td ><%= @number+=1 %></td>
+        <td ><%= f.name %></td>
+        <td><%= f.start_at %></td>
+        <td><%= f.end_at %></td>
+        <td><%= f.description %></td>
+        <td><%= f.status %></td>
+       
+        <td ><%= link_to 'Show', project_list_path(f) %></td>
+        <td ><%= link_to 'Edit', edit_project_list_path(f), 
+                                  method: :get,
+                                          data: { confirm: 'Are you sure?' } %></td>
+        <td ><%= link_to 'Destroy', project_list_path(f),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+        
+      </tr>
+    <% end %>
+  </table>

@@ -1,0 +1,73 @@
+<%= form_for @m_day_type do |f| %>
+<% end %>
+<form class="new_date_type" id="new_date_type" action="/date_types" accept-charset="UTF-8" method="post">
+  <div class="box-body">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6 kpi-input-area">
+      <div class="form-group">
+        <label for="date_type_name">Name of Date</label>
+        <input class="form-control form-date-type" name="date_type[name]" id="date_type_name">
+      </div>
+      <div class="form-group">
+        <label for="date_type_company_id">Company</label>
+        <select class="form-control select2" style="width: 100%;" tabindex="-1">
+          <option selected="selected"> ---  </option>
+          <option>IBSVN</option>
+          <option>IBSO</option>
+          <option>IBSTokyo</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date_type_rate">Rate</label>
+        <input class="form-control form-date-type" step="any" min="0" autofocus="autofocus" type="number" name="date_type[rate]" id="date_type_rate">
+      </div>
+      <div class="form-group">
+        <div class="checkbox">
+          <label><input type="checkbox" value="" ><strong>Active</strong></label>
+        <!-- <label for="date_type_rate">Active</label>
+        <input class="form-control form-date-type" type="checkbox" name="date_type[active]" id="date_type_active"> -->
+        </div>
+      </div>
+
+      <input type="submit" name="commit" value="Save" class="btn btn-primary btn-save-date-type">
+    </div>
+  </div>
+
+<%= form_for @m_day_type do |f| %>
+  <div class="box-body">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6 kpi-input-area">
+      <div class="form-group">
+        <%= f.label :sale_amount, t('.sale_amount_label', currency: @currency.code) %>
+        &nbsp;&nbsp;<span id="errmsg"></span>
+        <%= f.number_field :sale_amount, class: "form-control form-kpi", step: 'any', min: 0, max: 999999, autofocus: true %>
+      </div>
+      <div class="form-group">
+        <%= f.label :num_of_order, t('.order_label') %>
+        &nbsp;&nbsp;<span id="errmsg"></span>
+        <%= f.number_field :num_of_order, class: "form-control form-kpi", min: 0 , max: 999999 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :num_of_interview, t('.interview_label') %>
+        &nbsp;&nbsp;<span id="errmsg"></span>
+        <%= f.number_field :num_of_interview, class: "form-control form-kpi", min: 0, max: 999999 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :num_of_cv, t('.cv_label') %>
+        &nbsp;&nbsp;<span id="errmsg"></span>
+        <%= f.number_field :num_of_cv, class: "form-control form-kpi", min: 0, max: 999999 %>
+      </div>
+      <div class="form-group">
+        <%= f.label :num_of_placement, t('.placement_label') %>
+        &nbsp;&nbsp;<span id="errmsg"></span>
+        <%= f.number_field :num_of_placement, class: "form-control form-kpi", min: 0, max: 999999 %>
+      </div>
+
+      <%= f.submit t('.btn_submit'), class: 'btn btn-primary btn-save-kpi' %>
+    </div>
+  </div>
+
+<% end %>
+

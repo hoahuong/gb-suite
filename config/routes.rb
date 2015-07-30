@@ -1,14 +1,21 @@
 Rails.application.routes.draw do
+
+  devise_for :users, :skip => [:registrations], :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+
+  devise_scope :user do
+    root to: "devise/sessions#new"
+  end
+
   resources :approved_list do
     get 'approved_detail'
   end
 
-  resources :set_schedule do 
-    collection do 
+  resources :set_schedule do
+    collection do
       get 'new_special_day'
     end
 
-    member do 
+    member do
       get 'edit_special_day'
     end
 
@@ -23,11 +30,18 @@ Rails.application.routes.draw do
     end
 
   end
+
   resources :project_list
-  resources :m_date_types
-  resources :companies
+  resources :m_day_types
+  resources :m_companies
   resources :users
 
+  resource :user, only: [:edit] do
+    collection do
+      get 'edit_password'
+      patch 'update_password'
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

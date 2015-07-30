@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  companyid: 1
+  name: MyString
+  startat: 2015-07-27 11:38:20
+  endat: 2015-07-27 11:38:20
+  status: 1
+  note: MyString
+
+two:
+  companyid: 1
+  name: MyString
+  startat: 2015-07-27 11:38:20
+  endat: 2015-07-27 11:38:20
+  status: 1
+  note: MyString

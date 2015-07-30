@@ -12,7 +12,33 @@
 	    	<br>
 	    	<!--<div class="col-md-10">-->
 	    	<div class="box" id="table-content" >
-	     		 <%= render partial: 'form' %>
+	     		  <form class="form-horizontal">
+                  <div class="box-body">
+                    <div class="form-group">
+                      <label for="Name" class="col-sm-3" >Name </label>
+                       <label for="Name" class="col-sm-5" ><%=@project.name%></label>
+                    </div>
+                    <div class="form-group">
+                      <label for="datetimepicker1" class="col-sm-3 "  >Start at</label>
+                      <label for="Name" class="col-sm-5" ><%=@project.start_at%></label>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="datetimepicker2" class="col-sm-3 " >end at</label>
+                       <label for="Name" class="col-sm-5" ><%=@project.end_at%></label>
+                    </div>
+                    <div class="form-group">
+                      <label for="Name" class="col-sm-3 " >Notice</label>
+                      <label for="Name" class="col-sm-5" ><%=@project.description%></label>
+                    </div>
+                    <div class="form-group">
+                      <label for="Name" class="col-sm-3" >Status</label>
+                      <label for="Name" class="col-sm-5" ><%=@project.status%></label>
+                    </div>
+                   
+                  </div><!-- /.box-body -->
+                  <!-- /.box-footer -->
+                </form>
 
 	       </div>
          <div class="row">

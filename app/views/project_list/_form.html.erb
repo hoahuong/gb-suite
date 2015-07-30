@@ -5,20 +5,46 @@
                 </div>-->
                 <!-- /.box-header -->
                 <!-- form start -->
-               
-                <form class="form-horizontal">
+                <div class="form-horizontal">
+
+                 <%= form_for @project, method: :patch, url: project_list_path do |f| %>             
                   <div class="box-body">
-                    <div class="form-group">
-                      <label for="Name" class="col-sm-3" >Name</label>
-                      <div class="col-sm-5">
-                        <input type="text" class="form-control" id="Name" placeholder="Nguyen van A">
-                      </div>
+                     
+                    <!--<div class="form-group">
+                      <label for="Name" class="col-sm-3" >Name </label>
+                       <label for="Name" class="col-sm-5" ><%#=@projects.name%></label>
                     </div>
                     <div class="form-group">
                       <label for="datetimepicker1" class="col-sm-3 "  >Start at</label>
+                      <label for="Name" class="col-sm-5" ><%#=@projects.start_at%></label>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="datetimepicker2" class="col-sm-3 " >end at</label>
+                       <label for="Name" class="col-sm-5" ><%#=@projects.end_at%></label>
+                    </div>
+                    <div class="form-group">
+                      <label for="Name" class="col-sm-3 " >Notice</label>
+                      <label for="Name" class="col-sm-5" ><%#=@projects.description%></label>
+                    </div>
+                    <div class="form-group">
+                      <label for="Name" class="col-sm-3" >Status</label>
+                      <label for="Name" class="col-sm-5" ><%#=@projects.status%></label>
+                    </div>-->
+                                   
+                    <div class="form-group">
+                      <label for="Name" class="col-sm-3" >Name</label>
                       <div class="col-sm-5">
-                      <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" placeholder="2015/07/07 8:1:0"/>
+                      
+                        <%= f.text_field  :name %>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="datetimepicker1" class="col-sm-3 ">Start at</label>
+                      <div class="col-sm-5">
+
+                     <!-- <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" id="start_at" />
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -28,14 +54,18 @@
                             $('#datetimepicker1').datepicker();
                           });
                           </script>
-                         </div>
+                         </div>-->
+
+                          <%= f.datetime_field :start_at %>
+                           </div>
+
                     </div>
 
                     <div class="form-group">
-                      <label for="datetimepicker2" class="col-sm-3 " >end at</label>
+                      <label for="datetimepicker2" class="col-sm-3 ">end at</label>
                       <div class="col-sm-5">
-                      <div class='input-group date' id='datetimepicker2' >
-                        <input type='text' class="form-control" placeholder="2015/07/07 9:1:0" />
+                      <!--<div class='input-group date' id='datetimepicker2' >
+                        <input type='text' class="form-control" id="end_at"   placeholder=<%= @project.end_at%> />
                         <span class="input-group-addon">
                           <span class="glyphicon glyphicon-calendar"></span>
                         </span>
@@ -45,27 +75,38 @@
                             $('#datetimepicker2').datepicker();
                           });
                           </script>
-                         </div>
+                         </div>-->
+                           <%= f.datetime_field :end_at %>
+                           </div>
                     </div>
                     <div class="form-group">
-                      <label for="Name" class="col-sm-3 " >Notice</label>
+                      <label for="Name" class="col-sm-3 ">Notice</label>
                       <div class="col-sm-5">
-                        <input type="text" class="form-control" id="Name" placeholder="join project">
+                        <!--<input type="text_field_tag" class="form-control" id="description"  value=<%= @project.description%>>-->
+                           <%= f.text_field :description%>
+
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="Name" class="col-sm-3" >Status</label>
+                      <label for="Name" class="col-sm-3">Status</label>
                       <div class="col-sm-5">
-                        <input type="text" class="form-control" id="Name" placeholder="open">
+                        <!--<input type="text" class="form-control" id="status"   placeholder=""  >-->
+                       <%= f.text_field  :status %>
+                       
                       </div>
                     </div>
-                   
+                    
+                  
                   </div><!-- /.box-body -->
                   <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <!--<button  type="submit" class="btn btn-primary">Save</button>-->
+                    <%= f.submit "update", :class => "btn btn-primary" %>
                   </div>
+                   <% end %>
                   <!-- /.box-footer -->
-                </form>
+                 </div>
+                
+                 
                
               </div>
 </div>

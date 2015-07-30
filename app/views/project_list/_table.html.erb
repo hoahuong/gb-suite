@@ -1,3 +1,4 @@
+  <%= javascript_include_tag 'jquery-sortable' %>
 <div class="box-body no-padding ranking-table">
   <form class="form-horizontal">
     <div class="box-body" >
@@ -39,7 +40,6 @@
             </div>
              <script type="text/javascript">
             $(function () {
-                // $('#datetimepicker1').datetimepicker();
                 $('#datetimepicker2').datepicker();
               });
               </script>
@@ -59,7 +59,7 @@
 </div>
 </div>
 
-<div style="margin-bottom:20px">
+<div style="margin-bottom:20px" class="col-sm-12">
   <div style="float: left;">
     <lable >show</lable>
     <select>
@@ -72,7 +72,14 @@
   </div>
   <div style="float:right;">
     <lable >Search</lable>
-    <input class="" style="margin-bottom: 5px;">
+   
+    <input type="text" name="search" id="search">
+      <input type="button" id="Button1" value="Get Cars" onclick="render();" />
+      <%= form_tag({:controller=>'project_list', :action=>'search'}, method: :get) do %>
+        <%= text_field_tag :status %>
+        <%= submit_tag 'Search by status', status: nil %>
+      <% end %>
+
   </div>
 <!-- <table>
   <tr>
@@ -105,8 +112,9 @@
 </table> -->
 </div>
 
-<div style="margin-top:20pxs">
-    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+<div style="margin-top:20pxs" class="col-sm-12">
+
+  <!--  <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
                     <thead>
                       <tr role="row">
                         <th class="sorting_asc" tabindex="0" aria-controls="example2" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">No</th>
@@ -152,36 +160,132 @@
 
                     </tbody>
                     
-                  </table>
-</div>
+                  </table>-->
 
-<div>
-  <table>
-    <tr>
-      <td>
-        <lable>show 1 to 10 in 60 entries </lable>
-      </td>
-      <td style="margin-left:700px">
-        <div class="paging" style="margin-left:700px">
-          <ul class="pagination pagination" style="aglign:right">
-            <li><a href="#">«</a></li>
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">»</a></li>
-          </ul>
-        </div>
-      </td>
+<table id="example" border="1"; cellpadding="0"; cellspacing="0";class="col-sm-12"  class="table table-bordered table-hover dataTable" >
+    <tr >
+      
+      <!--<th><%= sortable "title" %></th>
+     <th><%= sortable "text" %></th>-->
+    <th>No</th>
+    <th><%= link_to "name", :sort => "name" %></th>
+    <th><%= link_to "start_at", :sort => "start_at" %></th>
+    <th><%= link_to "end_at", :sort => "end_at" %></th>
+    <th><%= link_to "description", :sort => "description" %></th>
+    <th><%= link_to "status", :sort => "status" %></th>
+    
+    <th>show</th>
+    <th>edit</th>
+    <th>delete</th>
+   
+   
     </tr>
+
+    <% @projects.each do |project| %>
+      <tr>
+       <td ><%= @number+=1 %></td>
+        <td ><%= project.name %></td>
+        <td><%= project.start_at %></td>
+        <td><%= project.end_at %></td>
+        <td><%= project.description %></td>
+        <td><%= project.status %></td>
+        <td ><%= link_to 'Show', project_list_path(project) %></td>
+        <td ><%= link_to 'Edit', edit_project_list_path(project), 
+                                  method: :get,
+                                          data: { confirm: 'Are you sure?' } %></td>
+        <td ><%= link_to 'Destroy', project_list_path(project),
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %></td>
+        
+      </tr>
+    <% end %>
   </table>
 </div>
 
+<div style="margin-top:20px" class="col-sm-12">
+  <div style="float: left;">
+    <lable>show 1 to 10 in 60 entries </lable>
+  </div>
+  <div style="float:right;">
+     <%= will_paginate @projects,  previous_label: "Previous", next_label: "Next", inner_window: 1, outer_window:0 %>
+  </div>
+</div>
+
+<script type="text/javascript" src="/path/to/jquery-latest.js"></script> 
+<script type="text/javascript" src="/path/to/jquery.tablesorter.js"></script> 
 
 <script type="text/javascript">
             $(function () {
-                // $('#datetimepicker1').datetimepicker();
                 $('#datetimepicker1').datepicker();
               });
+
+
+        function render(target){
+            
+             var status = $("#search").val().trim();
+              $.ajax({
+                type: "POST",
+                url:"/project_list/search",
+                 data: {status: JSON.stringify(status)},
+                success : function (data) {
+                $("#example").html(data);
+
+                    var trHTML = '';
+                    var no=0;
+
+
+                     trHTML = '<tbody id="people">';
+                     trHTML += '<tr><th >no</th><th >name</th><th  >start_at</th><th >end_at</th>/tr>';
+                   
+                    //trHTML= '<tr ><th>No</th><th>'+'<%= link_to "name", :sort => "name" %>'+'</th><th><%= link_to "start_at", :sort => "start_at" %></th><th><%= link_to "end_at", :sort => "end_at" %></th><th><%= link_to "description", :sort => "description" %></th><th><%= link_to "status", :sort => "status" %></th><th>show</th><th>edit</th><th>delete</th></tr>';
+
+                  $.each(data, function (i, item) {
+                      no=no+1;
+                      trHTML +='<tr><td>' + no +'</td><td>'  + item.name + '</td><td>' + item.start_at + '</td><td>' + item.end_at + '</td></tr>';
+                  });
+
+                     trHTML += '</tbody>';
+
+                  $('#example').append(trHTML);
+                   }       
+              })
+          };
 </script>
+
+<script type="text/javascript">
+  $(function() {
+    $( "#example" ).sortable();
+  });
+            
+</script>
+
+    <script type="text/javascript">
+  
+    </script>
+
+     <style type="text/css">
+           table.example { 
+        background-color: #4D4D4D; 
+        font-size: 12px; 
+        width: 650px; 
+      } 
+      table.example th { 
+        background: #6E6E6E url("img/table-sorter-bg.png") no-repeat 0 -3px; 
+        cursor: pointer; 
+        height: auto; 
+        padding: 5px 0 5px 30px; 
+        text-align: left; 
+      } 
+      table.example td { 
+        color: #FFFFFF; 
+        padding: 5px; 
+      } 
+      table.example .headerSortUp { 
+        background-image: url("img/table-sorter-asc.png"); 
+      } 
+      table.example .headerSortDown { 
+        background-image: url("img/table-sorter-desc.png"); 
+      }
+    </style>
 
 

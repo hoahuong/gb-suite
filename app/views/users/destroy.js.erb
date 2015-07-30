@@ -1,0 +1,6 @@
+$("#table_content").html("<%= escape_javascript(render 'table') %>")
+
+$("#delModal").modal("hide");
+$( '.modal' ).remove();
+$( '.modal-backdrop' ).remove();
+$( 'body' ).removeClass( "modal-open" );

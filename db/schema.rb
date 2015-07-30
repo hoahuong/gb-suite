@@ -13,37 +13,40 @@
 
 ActiveRecord::Schema.define(version: 20150729032035) do
 
-  create_table "companies", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.text     "note",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "table_actions", force: :cascade do |t|
-    t.string   "code",       limit: 255
-    t.string   "name",       limit: 255
-    t.datetime "created_at"
-    t.integer  "created_by", limit: 4
-    t.datetime "updated_at"
-    t.integer  "updated_by", limit: 4
-    t.string   "active",     limit: 255
-  end
-
-  create_table "table_assignments", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
+  create_table "assignments", force: :cascade do |t|
     t.integer  "project_id",  limit: 4
+    t.integer  "user_id",     limit: 4
     t.date     "start_at"
     t.date     "end_at"
-    t.boolean  "is_parrover", limit: 1
-    t.datetime "created_at"
+    t.boolean  "is_approver", limit: 1
     t.integer  "created_by",  limit: 4
-    t.datetime "updated_at"
     t.integer  "updated_by",  limit: 4
     t.string   "active",      limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "table_day_types", force: :cascade do |t|
+  create_table "m_actions", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "name",       limit: 255
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+    t.string   "active",     limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "m_companies", force: :cascade do |t|
+    t.string   "code",       limit: 255
+    t.string   "name",       limit: 255
+    t.text     "note",       limit: 65535
+    t.integer  "created_by", limit: 4
+    t.integer  "updated_by", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "m_day_types", force: :cascade do |t|
     t.string   "code",        limit: 255
     t.string   "name",        limit: 255
     t.integer  "company_id",  limit: 4
@@ -53,28 +56,28 @@ ActiveRecord::Schema.define(version: 20150729032035) do
     t.float    "hours",       limit: 24
     t.boolean  "is_holiday",  limit: 1
     t.float    "rate",        limit: 24
-    t.datetime "created_at"
-    t.integer  "created_by",  limit: 4
-    t.datetime "updated_at"
-    t.integer  "updated_by",  limit: 4
     t.string   "active",      limit: 255
+    t.integer  "created_by",  limit: 4
+    t.integer  "updated_by",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "table_holiday_and_special_days", force: :cascade do |t|
+  create_table "m_holiday_and_special_days", force: :cascade do |t|
     t.string   "code",          limit: 255
     t.string   "name",          limit: 255
     t.integer  "day_type",      limit: 4
     t.boolean  "is_static_day", limit: 1
-    t.date     "day"
+    t.date     "date"
     t.string   "description",   limit: 255
-    t.datetime "created_at"
     t.integer  "created_by",    limit: 4
-    t.datetime "updated_at"
     t.integer  "updated_by",    limit: 4
     t.string   "active",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "table_projects", force: :cascade do |t|
+  create_table "m_projects", force: :cascade do |t|
     t.string   "code",        limit: 255
     t.string   "name",        limit: 255
     t.integer  "company_id",  limit: 4
@@ -82,11 +85,11 @@ ActiveRecord::Schema.define(version: 20150729032035) do
     t.date     "start_at"
     t.date     "end_at"
     t.string   "description", limit: 255
-    t.datetime "created_at"
-    t.integer  "created_by",  limit: 4
-    t.datetime "updated_at"
-    t.integer  "updated_by",  limit: 4
     t.string   "active",      limit: 255
+    t.integer  "created_by",  limit: 4
+    t.integer  "updated_by",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "table_timesheet_details", force: :cascade do |t|
@@ -99,56 +102,60 @@ ActiveRecord::Schema.define(version: 20150729032035) do
     t.integer  "regular_time",         limit: 4
     t.integer  "overtime",             limit: 4
     t.integer  "midnight",             limit: 4
-    t.datetime "created_at"
     t.integer  "created_by",           limit: 4
-    t.datetime "updated_at"
     t.integer  "updated_by",           limit: 4
     t.string   "active",               limit: 255
-  end
-
-  create_table "table_timesheets", force: :cascade do |t|
-    t.integer  "user_id",      limit: 4
-    t.integer  "project_id",   limit: 4
-    t.date     "report_month"
-    t.integer  "status",       limit: 4
     t.datetime "created_at"
-    t.integer  "created_by",   limit: 4
     t.datetime "updated_at"
-    t.integer  "updated_by",   limit: 4
-    t.string   "active",       limit: 255
   end
 
-  create_table "tables", force: :cascade do |t|
+  create_table "timesheet_histories", force: :cascade do |t|
     t.string   "timesheet_history", limit: 255
     t.integer  "timesheet_id",      limit: 4
     t.integer  "actor_id",          limit: 4
     t.integer  "action_id",         limit: 4
     t.datetime "action_at"
     t.text     "message",           limit: 65535
-    t.datetime "created_at"
     t.integer  "created_by",        limit: 4
-    t.datetime "updated_at"
     t.integer  "updated_by",        limit: 4
     t.string   "active",            limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "timesheets", force: :cascade do |t|
+    t.integer  "user_id",      limit: 4
+    t.integer  "project_id",   limit: 4
+    t.date     "report_month"
+    t.integer  "status",       limit: 4
+    t.integer  "created_by",   limit: 4
+    t.integer  "updated_by",   limit: 4
+    t.string   "active",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "user_id",       limit: 4
-    t.integer  "company_id",    limit: 4
-    t.string   "name",          limit: 100
-    t.integer  "is_accountant", limit: 4
-    t.string   "email",         limit: 100
-    t.string   "user_name",     limit: 100
-    t.string   "password",      limit: 100
-    t.integer  "salt",          limit: 4
-    t.integer  "is_admin",      limit: 4
-    t.datetime "create_at"
-    t.integer  "create_by",     limit: 4
-    t.datetime "update_at"
-    t.integer  "update_by",     limit: 4
-    t.integer  "active",        limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "email",                  limit: 255,             null: false
+    t.string   "encrypted_password",     limit: 255,             null: false
+    t.string   "code",                   limit: 255
+    t.string   "first_name",             limit: 255
+    t.string   "last_name",              limit: 255
+    t.integer  "company_id",             limit: 4
+    t.boolean  "is_accountant",          limit: 1
+    t.string   "active",                 limit: 255
+    t.integer  "created_by",             limit: 4
+    t.integer  "updated_by",             limit: 4
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

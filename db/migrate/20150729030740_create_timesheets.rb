@@ -3,13 +3,13 @@ class CreateTimesheets < ActiveRecord::Migration
     create_table :timesheets do |t|
       t.integer :user_id
       t.integer :project_id
-      t.date :report_month
+      t.date    :report_month
       t.integer :status
-      t.datetime :created_at
       t.integer :created_by
-      t.datetime :updated_at
       t.integer :updated_by
-      t.string :active
+      t.string  :active
+
+      t.timestamps
     end
   end
 end

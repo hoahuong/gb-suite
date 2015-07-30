@@ -1,0 +1,113 @@
+<style>
+a {
+  color: #3c8dbc;
+}
+a:visited {
+  color:#3c8dbc;
+}
+</style>
+<div class="box-body no-padding ranking-table">
+  <form class="form-horizontal">
+    <div class="box-body">
+
+    </div><!-- /.box-body -->
+  </form>
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <%= link_to new_m_day_type_path, class: "btn btn-info", role: "button", style: "float: right; margin-bottom: 5px;" do %>
+      <span>New</span>
+    <% end %>
+    <!-- <a href="#" class="btn btn-info" role="button" style="float: right; margin-bottom: 5px;">New</a> -->
+    <!-- <input type="submit" name="commit" value="New" class="btn btn-primary btn-settings" style="float: right; margin-bottom: 5px;"> -->
+    <%#= button_to "New", new_m_day_type_path, method: :get, class: 'btn btn-primary btn-settings', style: "float: right; margin-bottom: 5px;" %>
+    <table class="table table-striped" id="ranking-table">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <th>Rate</th>
+          <th>Active</th>
+          <th></th>
+          <th></th>
+        </tr>
+        <tr>
+          <td>Working</td>
+          <td>1.0</td>
+          <td><i class="fa fa-check"></i></td>
+          <td>
+            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+          </td>
+          <td>
+            <a href="#"><span>Delete</span></a>
+          </td>
+        </tr>
+        <tr>
+          <td>Weekend</td>
+          <td>2.0</td>
+          <td><i class="fa fa-check"></i></td>
+          <td>
+            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+          </td>
+          <td>
+            <a href="#"><span>Delete</span></a>
+          </td>
+        </tr>
+        <tr>
+          <td>Public holiday</td>
+          <td>3.0</td>
+          <td><i class="fa fa-check"></i></td>
+          <td>
+            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+          </td>
+          <td>
+            <a href="#"><span>Delete</span></a>
+          </td>
+        </tr>
+        <tr>
+          <td>Anual leave</td>
+          <td>0.0</td>
+          <td><i class="fa fa-check"></i></td>
+          <td>
+            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+          </td>
+          <td>
+            <a href="#"><span>Delete</span></a>
+          </td>
+        </tr>
+        <tr>
+          <td>1/2 Anual leave</td>
+          <td>0.0</td>
+          <td><i class="fa fa-check"></i></td>
+          <td>
+            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+          </td>
+          <td>
+            <a href="#"><span>Delete</span></a>
+          </td>
+        </tr>
+        <tr>
+          <td>Unpaid vacation</td>
+          <td>0.0</td>
+          <td><i class="fa fa-check"></i></td>
+          <td>
+            <a href="#"><i class="fa fa-pencil-square-o"></i></a>
+          </td>
+          <td>
+            <a href="#"><span>Delete</span></a>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="box-footer clearfix">
+  <div class="paging text-center">
+    <ul class="pagination pagination">
+      <li><a href="#">«</a></li>
+      <li><a href="#">1</a></li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">»</a></li>
+    </ul>
+  </div>
+</div>
