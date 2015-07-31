@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 	 belongs_to :company
+
+ 	def self.search search_term
+	  return scoped unless search_term.present? 
+	  where(['first_name LIKE ? AND code LIKE ? AND email LIKE ?', "%#{search_term}%", "%#{search_term}%", "%#{search_term}%"]) 
+	end
 end

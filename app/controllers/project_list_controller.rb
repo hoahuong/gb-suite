@@ -6,6 +6,17 @@ class ProjectListController < ApplicationController
   	  #@projects=Project.all
   	    @projects = Project.order(params[:sort]).paginate(page: params[:page], per_page: 4)
   	    @number=0
+if params[:search]
+      #params[:status] = params[:status].gsub('"', '') 
+      #@projects = Project.search(params[:status])
+       @projects = Project.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 5)
+       p "fff"
+       p   @projects
+       
+
+        #  @project = Project.where( "status LIKE :status or name like :status or start_at like :status or end_at like :status" , {:status=> "%#{params[:status]}%"})
+    # @project = Project.where( "status LIKE :status or name like :status or start_at like :status or end_at like :status" , {:status=> "%#{params[:status]}%"})
+end
 
 
   end

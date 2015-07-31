@@ -1,23 +1,23 @@
 <script type="text/javascript">
-  window.history.replaceState("Url", "Reset", window.location.origin + window.location.pathname);
+window.history.replaceState("Url", "Reset", window.location.origin + window.location.pathname);
 </script>
 <div class="box-body no-padding ranking-table">
   <div class="box-body">
     <div class="form-group">
       <div class="row">
-          <%= form_tag(m_companies_path, method: :get, remote: true, :id => "search-form") do%>
-          <label for="inputEmail3" class="col-md-2 control-label">Company name</label>
-          <div class="col-md-8">
-            <%= text_field_tag :search, params[:search], placeholder: "Search company name", class: "form-control"%>
-          </div>
-          <%= submit_tag "Search", class: "btn btn-primary", name: nil %>
-          <%end%>
+        <%= form_tag(m_companies_path, method: :get, remote: true, :id => "search-form") do%>
+        <label for="inputEmail3" class="col-md-2 control-label">Company name</label>
+        <div class="col-md-8">
+          <%= text_field_tag :search, params[:search], placeholder: "Search company name", class: "form-control"%>
+        </div>
+        <%= submit_tag "Search", class: "btn btn-primary"%>
+        <%end%>
       </div>
     </div>
     <% if companies.length == 0 %>
     <div class="col-md-12">
       <h1 class="text-center">
-          Nothing to show here
+        Nothing to show here
       </h1>
     </div>
     <% else %>
@@ -39,18 +39,16 @@
             <td><%= company.note %></td>
             <td>
               <%= link_to m_company_path(company, page: @page), remote: true do %>
-                <i class="fa fa-eye fa-2x"></i>
+              <i class="fa fa-eye fa-2x"></i>
               <%end%>
             </td>
             <td>
               <%= link_to edit_m_company_path(company, page: @page), remote: true do %>
-                <i class="fa fa-edit fa-2x"></i>
+              <i class="fa fa-edit fa-2x"></i>
               <%end%>
             </td>
             <td>
-              <%= link_to m_company_path(company, page: @page), method: :delete, remote: true do%>
-                <i class="fa fa-trash fa-2x"></i>
-              <%end%>
+              <a href="#delete-confirm" data-id="<%= company.id %>" class="delete-confirm"><i class="fa fa-trash fa-2x"></i></a>
             </td>
           </tr>
           <% end %>
@@ -65,15 +63,27 @@
     </div>
     <div class="col-md-9 pull-left">
       <div class="pull-right">
-      <%= will_paginate companies, params: {controller: "m_companies", action: "index", search: nil, utf8: nil}, renderer: BootstrapPagination::Rails %>
+        <%= will_paginate companies, params: {controller: "m_companies", action: "index", search: nil, utf8: nil}, renderer: BootstrapPagination::Rails %>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-12">
-    <%= link_to 'New Company', new_m_company_path(page: @page), remote: true, class: "btn btn-primary" %>
+      <%= link_to 'New Company', new_m_company_path(page: @page), remote: true, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 

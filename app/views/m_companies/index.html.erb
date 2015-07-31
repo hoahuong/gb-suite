@@ -1,10 +1,45 @@
 <div class="row">
-  <div class="col-md-12">
-    <div class="box" id="table_content">
-      <%= render 'table', companies: @companies %>
-    </div>
-  </div>
+	<div class="col-md-12">
+		<div class="box" id="table_content">
+			<%= render 'table', companies: @companies %>
+		</div>
+	</div>
 </div>
 <div id="company_modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+
+<!-- modal for comfirm delete -->
+<div id="delete_confirm" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<a class="close" data-dismiss="modal">×</a>
+				<h3>Are You Sure?</h3>
+			</div>
+			<div class="modal-body">
+				<p>Are you sure you want to delete?</p>
+			</div>
+			<div class="modal-footer">
+				<a data-dismiss="modal" class="btn">Cancel</a>
+				<%= link_to 'Delete', '/m_companies/pony', method: :delete, remote: true, id: 'delete-btn', :class => 'btn btn-danger' %>
+			</div>
+		</div>
+	</div>           
+</div>
+
+<script type="text/javascript">
+// Delete confirmation modals
+$('.delete-confirm').click(function(e) {
+	e.preventDefault();
+	$('#delete_confirm').data('id', $(this).data('id')).modal('show');
+
+	var submit = $("#delete-btn");
+	var href = submit.attr('href');
+	console.log(href);
+	submit.attr('href', href.replace('pony', $(this).data('id')));
+});
+</script>
+
+
 
 

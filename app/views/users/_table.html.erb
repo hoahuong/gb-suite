@@ -11,7 +11,9 @@
   </thead>
   <tbody>
     <% if @users.empty? %>
-    <tr>Data is empty</tr> 
+    <tr>
+      <td colspan="6">Data is empty</td>
+    </tr> 
     <% 
       else 
         count = 0;
@@ -52,9 +54,9 @@
       </div>
       <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <a href="" data-remote="true" rel="nofollow" data-method="delete">
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </a> 
+          <%= link_to user_path(1), :id => "linkDel", method: :delete, remote: true do %>
+            <button type="button" class="btn btn-primary">Delete</button>
+          <% end %>
       </div>
     </div>
   </div>
@@ -67,8 +69,8 @@ $(document).ready(function() {
 $('.del').on('click', function() {
   var userId = $(this).attr('id');
   $('#delModal').on('shown.bs.modal', function () {
-    alert($('a[data-method="delete"]').attr('href'));
-    $('a[data-method="delete"]').attr('href', '/users/' + userId);
+    var hrefCur = $('a#linkDel').attr('href');
+    $('a#linkDel').attr('href', hrefCur.substring(0, hrefCur.lastIndexOf("/") + 1) + userId);
   }); 
 });
 </script>

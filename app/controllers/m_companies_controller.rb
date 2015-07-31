@@ -8,8 +8,6 @@ class MCompaniesController < ApplicationController
   		else
 			@companies = MCompany.all.paginate(page: params[:page], per_page: 5)
   		end
-  		puts "->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-  		puts @companies.length
 		@page = params[:page]
 	end
 
@@ -40,6 +38,10 @@ class MCompaniesController < ApplicationController
 		@company.update(company_params)
 		@companies = MCompany.all.paginate(page: params[:page], per_page: 5)
 		@page = params[:page]
+  	end
+
+  	def delete
+  		@companyId = params[:id]
   	end
 
   	def destroy

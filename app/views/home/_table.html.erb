@@ -1,0 +1,202 @@
+<div class="box-body no-padding ranking-table">
+  <form class="form-horizontal">
+    <h1>
+        HOME
+    </h1>
+    <div class="box box-body">
+      <%if @is_accountant == true%>
+        <table class="table table-bordered table-striped dataTable">
+          <tr>
+            <th colspan = "4">
+                Approve list (Approve by user)
+            </th>
+          </td>
+          <tr>
+            <td colspan = "4">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="dataTables_length" id="example1_length">
+                    <label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select> entries</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div id="example1_filter" class="dataTables_filter" style="text-align: right;">
+                    <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>  
+          <tr>
+            <th>
+              No
+            </th>
+            <th>
+              Staff name
+            </th>
+            <th>
+                Submit/Assign
+            </th>
+            <th>
+                Action
+            </th>
+          <tr>
+          <%
+          i = 1
+          @approve_list_by_user.each do |user|%>  
+          <tr>
+            <td>
+              <%= i %>
+            </td>
+            <td>
+              <%= user[:full_name]%>
+            </td>
+            <td>
+              <%= user[:assign_number]%> / <%= user[:timesheet_count]%>
+            </td>
+            <td>
+            </td>
+          </tr>
+          <%
+          i += 1;
+          end%>
+        </table>  
+        <div>
+          <div class="col-md-9 pull-left">
+            <div class="pull-right">
+              <%= will_paginate @approve_list_by_user, renderer: BootstrapPagination::Rails %>
+            </div>
+          </div>
+        </div>
+      <%end%>
+
+      <%if !@approve_list.blank? %>
+        <table class="table table-bordered table-striped dataTable">
+          <tr>
+            <th colspan = "3">
+                Approve list
+            </th>
+          </td>
+          <tr>
+            <td colspan = "3">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="dataTables_length" id="example1_length">
+                    <label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select> entries</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div id="example1_filter" class="dataTables_filter" style="text-align: right;">
+                    <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>  
+          <tr>
+            <th>
+              No
+            </th>
+            <th>
+              Project name
+            </th>
+            <th>
+                Action
+            </th>
+          <tr>
+          <%
+          i = 1
+          @approve_list.each do |item|
+            %>
+            <tr>
+            <th>
+              <%= i%>
+            </th>
+            <th>
+              <%= item[:name]%>
+            </th>
+            <th>
+                
+            </th>
+          <tr>
+          <%
+          i+=1 
+          end
+          %>
+        </table>  
+      <%end%>
+      
+      <%if !@input_list.blank? %>
+        <table class="table table-bordered table-striped dataTable">
+          <tr>
+            <th colspan = "3">
+                Input project list
+            </th>
+          </td>
+          <tr>
+            <td colspan = "3">
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="dataTables_length" id="example1_length">
+                    <label>Show <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                      <option value="10">10</option>
+                      <option value="25">25</option>
+                      <option value="50">50</option>
+                      <option value="100">100</option>
+                    </select> entries</label>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div id="example1_filter" class="dataTables_filter" style="text-align: right;">
+                    <label>Search:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+                  </div>
+                </div>
+              </div>
+            </td>
+          </tr>  
+          <tr>
+            <th>
+              No
+            </th>
+            <th>
+              Project name
+            </th>
+            <th>
+                Action
+            </th>
+          <tr>
+          <%
+          i = 1
+            @input_list.each do |it|
+            %>
+            <tr>
+            <th>
+              <%= i%>
+            </th>
+            <th>
+              <%= it[:name]%>
+            </th>
+            <th>
+                
+            </th>
+          <tr>
+          <%
+          i+=1 
+          end
+          %>
+        </table>  
+      <%end%>
+    </div>  
+</div>
+</form>
+</div>

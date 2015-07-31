@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   def index
-  	@users = User.all
+  	if params[:search]
+        @users = User.search(params[:search]).all
+        p params[:search]
+         respond_to do |format|
+            format.js
+        end
+      else
+        @users = User.all
+      end
   	#@user = User.find(params[:id])
   end
 
